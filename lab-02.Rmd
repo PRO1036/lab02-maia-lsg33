@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Votre nom"
-date: "La date"
+author: "LE SCOUARNEC Maïa"
+date: "21/09/2025"
 output: github_document
 ---
 
@@ -20,8 +20,12 @@ Commençons par filtrer les données pour retirer le point représenté par Trin
 ```{r filter-data, message=FALSE}
 plastic_waste <- plastic_waste %>%
   filter(plastic_waste_per_cap < 3.5)
+  ggplot(data = plastic_waste, 
+         aes(x = plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)+
+    labs(x= "quantité de plastique non gérés", y = "continent" )
 ```
-
+ 
 
 ## Exercices
 
@@ -29,15 +33,25 @@ plastic_waste <- plastic_waste %>%
 
 ```{r plastic-waste-continent}
 # insert code here
+ggplot(data = plastic_waste,
+       aes(x= plastic_waste_per_cap))+
+  geom_histogram(binwidth = 0.2)+
+  labs(x= "quantité de plastique non gérés", y = "continent" )+
+  facet_wrap(~continent)
 ```
+On remarque que le continent Américian ( Nord et Sud) et le continent asiatique ont des pays qui produisent plus de 0.5 tonne de plastique contrairement aux autres continents qui voit leur production inférieure à 0.5. 
+ON voit aussi que la majorité des pays de chaque continent ont quand même une production de plastique inférieur à 0.25 tonnes. 
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
 # insert code here
+ggplot(data = plastic_waste,
+       aes(x= plastic_waste_per_cap, color = continent, fill = continent))+
+  geom_density(size= 0.15,alpha= 0.5)
 ```
 
-Réponse à la question...
+Color, fill se trouvent dans aes car ils sont conditionnés pour chaque variable, alors que alpha se trouve dans geom_density car on souhaite que toutes les variables soient à la même transparence. 
 
 ### Exercise 3
 
