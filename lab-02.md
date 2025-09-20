@@ -74,35 +74,84 @@ Boxplot:
 
 ``` r
 # insert code here
+ggplot(data = plastic_waste,
+       aes(x= continent, y= plastic_waste_per_cap, color = continent))+
+  geom_boxplot()
 ```
+
+![](lab-02_files/figure-gfm/plastic-waste-boxplot-1.png)<!-- -->
 
 Violin plot:
 
 ``` r
 # insert code here
+ggplot(data = plastic_waste,
+       aes(x= continent, y= plastic_waste_per_cap, color = continent))+
+  geom_violin()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-violin-1.png)<!-- -->
+
+Le graphe violin permet de mieux voir la répartiton dans les continents,
+il possède une meilleure précision de l’uniformité ou non de la
+production de plastique en tonne. Par exemple sur le graph box on ne
+voit pas de médiane dans la moyenne de l’Amérique du Nord, or grace au
+violin on voit bien que l’on à une majorité entre 0.25 et 0.3 tonnes de
+porduction de plastique.
+
+De plus on comprend mieux les points qui apparaissaient sur le graph
+box.
 
 ### Exercise 4
 
 ``` r
 # insert code here
+ggplot (data= plastic_waste, 
+        aes (x= plastic_waste_per_cap, y=mismanaged_plastic_waste_per_cap, color= continent))+
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-mismanaged-1.png)<!-- -->
+
+Le nuage de point montre qu’il existe une relation entre la production
+de déchet et la quantité qui est mal gérée. On remarque que plus le
+continent produit de déchet par habitant, moins il est en capacité de
+les gérer correctement. Pourtant on remarque quelques points qui ne
+suivent pas la tendance. Cela montre que certains pays malgrés une
+production faible de déchet ne sont pas en capacité de les gérer. (Ex le
+point marron représentant un pays d’Asie)
 
 ### Exercise 5
 
 ``` r
 # insert code here
+ggplot (data= plastic_waste, 
+        aes (x= plastic_waste_per_cap, y=total_pop, color= continent))+
+  geom_point()
 ```
+
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-population-total-1.png)<!-- -->
 
 ``` r
 # insert code here
+ggplot (data= plastic_waste, 
+        aes (x= plastic_waste_per_cap, y=coastal_pop, color= continent))+
+  geom_point()
 ```
 
-Réponse à la question…
+![](lab-02_files/figure-gfm/plastic-waste-population-coastal-1.png)<!-- -->
+
+On remarque qu’il est compliqué de lire le graph 1 car la population est
+tres grand et cela rend compliqué l’observation entre le nombre total
+d’habitant et la porduction de déchet par habitant. Par contre pour le
+graph 2, on remarque que les contients avec une plus grande population
+cotière ont une production de déchets plus élevée par habitant. Par
+exemple l’Océanie qui est très cotière, à une plus grande production de
+déchet par habitant, que l’Asie qui a beaucoup moins de territoires
+cotiers.
 
 ## Conclusion
 
